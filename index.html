@@ -14,37 +14,73 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/timeline.css" rel="stylesheet">
 
     <style type="text/css">
         #mynetwork {
-            /*width: 1024px;*/
-            /*height: 768px;*/
-            /*border: 2px solid gray;*/
             background-color:#E57373;
         }
 
         html,body{height:100%;}
 
-        .fill{
-            width:100%;
+        .container-fluid {
             height:100%;
+        }
+
+        /*.col-md-6{
+            height: 768px;
             min-height:100%;
             padding:10px;
             color:#efefef;
+        }*/
+
+        .col-md-6{
+            height: 768px;
+            min-height:100%;
+            padding:10px;
+            color:#1A1A1A;
         }
     </style>
 </head>
 <body>
-    <!--<div class="container fill">
-        <div id="mynetwork"></div>
 
-        <footer class="footer">
-            <p>&copy; 2016 Company, Inc.</p>
-        </footer>
-
-    </div> &lt;!&ndash; /container &ndash;&gt;-->
-
-    <div class="fill" id="mynetwork">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6" id="mynetwork">Two</div>
+            <div class="col-md-6">
+                <div id="education">
+                    <div id="experience" class="experience">
+                            <h3 class="tittle four">Education &amp; Experience</h3>
+                            <div class="experience-main">
+                                <span class="devide-line"></span>
+                                <div class="experience-left">
+                                    <span aria-hidden="true" class="glyphicon glyphicon-book"></span>
+                                    <h4>MASTER OF FINE ARTS</h4>
+                                    <h5>DESIGN UNIVERSITY [ 2011 - 2013 ]</h5>
+                                    <p>Sed a tortor sed ipsum porta iaculis id eget massa. Quisque imperdiet urna sed lorem facilisis, id imperdiet magna dignissim. Maecenas quis dui at magna ullamcorper suscipit. In malesuada, massa at semper fermentum, metus eros imperdiet justo</p>
+                                </div>
+                                <div class="experience-left-snd">
+                                    <span aria-hidden="true" class="glyphicon glyphicon-briefcase"></span>
+                                </div>
+                                <div class="experience-right-snd">
+                                    <h4>DESIGN CORPORATION</h4>
+                                    <h5>UX DEVELOPER [ 2013 - 2014 ]</h5>
+                                    <p>Lorem ipsum dolor sit amet, rebum dolore labores cu pri. Ferri iudico scripta ut eam, diceret euismod gubergren has eu, an quo tale vivendum. Ad quidam gubergren vituperatoribus sit. Ius etiam nemore consulatu ne, at meliore explicari conceptam qui.</p>
+                                </div>
+                                <div class="experience-left-trd">
+                                    <span aria-hidden="true" class="glyphicon glyphicon-gift"></span>
+                                    <h4>CREATIVE DESIGN STUDIO</h4>
+                                    <h5>UX DEVELOPER [ 2016 - 2018 ]</h5>
+                                    <p>Morbi porta eros diam, vel dictum mauris tristique cursus. Curabitur at feugiat nulla. Morbi facilisis vulputate ligula non dignissim. Nunc sagittis non tellus eu hendrerit. Aenean quis enim tristique, lobortis ligula non, sollicitudin tortor.</p>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                    </div>
+                </div>
+                <div id="professional" class="hidden">Professional Information</div>
+                <div id="skill" class="hidden">Skill Information</div>
+            </div>
+        </div>
     </div>
 
     <script src="js/main.js"></script>

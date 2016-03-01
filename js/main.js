@@ -3,7 +3,7 @@
  */
 // create an array with nodes
 var nodes = new vis.DataSet([
-    {id: 1, label: 'Mesbahul\nIslam', shape: 'circularImage', image: 'images/profile1.jpg', size: 50,
+    {id: 1, label: 'Mesbahul\nIslam', shape: 'circularImage', image: 'images/profile1.jpg', size: 30,
         font: {
             color: '#f0f0f0',
             size: 11, // px
@@ -14,17 +14,17 @@ var nodes = new vis.DataSet([
             color: '#ff00ff',
             size: 14, // px
             face: 'verdana'
-        }
+        }, group: 3
     },
-    {id: 3, label: 'Professional\nExperience', cid:2},
-    {id: 4, label: 'Skills', cid:3},
-    {id: 5, label: 'Android', cid:3},
-    {id: 6, label: 'Java', cid:3},
-    {id: 7, label: 'NodeJs', cid:3},
-    {id: 8, label: 'FGI', cid:2},
-    {id: 9, label: 'NSN', cid:2},
-    {id: 10, label: 'BUET', cid:1},
-    {id: 11, label: 'UH', cid:1}
+    {id: 3, label: 'Professional\nExperience', group: 2, cid:2},
+    {id: 4, label: 'Skills', group: 1, cid:3},
+    {id: 5, label: 'Android', group: 1, cid:3, shape: 'image', image: 'images/android.png', size: 20},
+    {id: 6, label: 'Java', group: 1, cid:3, shape: 'image', image: 'images/java.png', size: 20},
+    {id: 7, label: 'NodeJs', group: 1, cid:3, shape: 'image', image: 'images/nodejs.png', size: 20},
+    {id: 8, label: 'FGI', group: 2, cid:2},
+    {id: 9, label: 'NSN', group: 2, cid:2},
+    {id: 10, label: 'Bangladesh University\nof\nEngineering & Technology', group: 3, cid:1, shape: 'image', image: 'images/buet.png', size: 20},
+    {id: 11, label: 'University of Helsinki', group: 3, cid:1, shape: 'image', image: 'images/hy.png', size: 20}
 ]);
 
 // create an array with edges
@@ -53,11 +53,11 @@ var data = {
 
 var options = {
     nodes: {
-        shape: 'dot',
+        shape: 'circle',
         size: 30,
         font: {
-            size: 16,
-            color: '#ffffff'
+            size: 20,
+            color: '#000000'
         },
         borderWidth: 2,
         shadow:true
@@ -72,46 +72,61 @@ var options = {
 var network = new vis.Network(container, data, options);
 
 network.on("selectNode", function(params) {
+    console.log('Select Event:', params.nodes);
     if (params.nodes.length == 1) {
         if (network.isCluster(params.nodes[0]) == true) {
             network.openCluster(params.nodes[0]);
         }
-        /*else {
-            if(params.nodes[0].id == 2) {
+        else {
+            if(params.nodes[0] == 2) {
                 network.cluster(clusterOptionsByAcademic);
             }
-        }*/
+            else if(params.nodes[0] == 3) {
+                network.cluster(clusterOptionsByProfessions);
+            }
+            else if(params.nodes[0] == 4) {
+                network.cluster(clusterOptionsBySkills);
+            }
+        }
     }
 });
 
 network.on("click", function (params) {
     console.log('Click Event:', params.nodes[0]);
     if (params.nodes.length == 1) {
-        if (network.isCluster(params.nodes[0]) == true) {
-            //network.openCluster(params.nodes[0]);
-        }
-        else {
-            if(params.nodes[0].id == 2) {
-                clusterByCid();
+        if (network.isCluster(params.nodes[0]) == false) {
+            focusRandom(params.nodes[0]);
+            if(params.nodes[0] == 2) {
+                $("#education").removeClass('hidden');
+                $("#skill").addClass('hidden');
+                $("#professional").addClass('hidden');
+            }
+            else if(params.nodes[0] == 3) {
+                $("#education").addClass('hidden');
+                $("#skill").addClass('hidden');
+                $("#professional").removeClass('hidden');
+            }
+            else if(params.nodes[0] == 4) {
+                $("#education").addClass('hidden');
+                $("#skill").removeClass('hidden');
+                $("#professional").addClass('hidden');
             }
         }
     }
 });
 
-function clusterByCid() {
-    network.setData(data);
-    // cluster by Academic
-    var clusterOptionsByAcademic = {
-        joinCondition:function(childOptions) {
-            return childOptions.cid == 1;
-        },
-        clusterNodeProperties: {id:'cidCluster1', label: 'Academic', borderWidth:3, shape:'circle'}
+function focusRandom(selectedNode) {
+    var nodeId = selectedNode;
+    var options = {
+        scale: 1.0,
+        offset: {x:0,y:0},
+        animation: {
+            duration: 1000,
+            easingFunction: 'easeInOutQuad'
+        }
     };
+    network.focus(nodeId, options);
 }
-
-
-
-// network.setData(data);
 
 // cluster by Academic
 var clusterOptionsByAcademic = {
@@ -140,7 +155,7 @@ var clusterOptionsBySkills = {
 };
 network.cluster(clusterOptionsBySkills);
 
-
+// main cluster
 var mainClusterOptions = {
     clusterNodeProperties: {
         id: 'masterCluster',
@@ -155,5 +170,5 @@ var mainClusterOptions = {
         image: 'images/profile1.jpg',
         size: 100
     }
-}
+};
 network.clusterByConnection(1, mainClusterOptions);
