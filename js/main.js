@@ -49,7 +49,24 @@ var data = {
     nodes: nodes,
     edges: edges
 };
-var options = {};
+//var options = {};
+
+var options = {
+    nodes: {
+        shape: 'dot',
+        size: 30,
+        font: {
+            size: 16,
+            color: '#ffffff'
+        },
+        borderWidth: 2,
+        shadow:true
+    },
+    edges: {
+        width: 2,
+        shadow:true
+    }
+};
 
 // initialize your network!
 var network = new vis.Network(container, data, options);
@@ -59,13 +76,38 @@ network.on("selectNode", function(params) {
         if (network.isCluster(params.nodes[0]) == true) {
             network.openCluster(params.nodes[0]);
         }
-        else {
+        /*else {
             if(params.nodes[0].id == 2) {
                 network.cluster(clusterOptionsByAcademic);
+            }
+        }*/
+    }
+});
+
+network.on("click", function (params) {
+    console.log('Click Event:', params.nodes[0]);
+    if (params.nodes.length == 1) {
+        if (network.isCluster(params.nodes[0]) == true) {
+            //network.openCluster(params.nodes[0]);
+        }
+        else {
+            if(params.nodes[0].id == 2) {
+                clusterByCid();
             }
         }
     }
 });
+
+function clusterByCid() {
+    network.setData(data);
+    // cluster by Academic
+    var clusterOptionsByAcademic = {
+        joinCondition:function(childOptions) {
+            return childOptions.cid == 1;
+        },
+        clusterNodeProperties: {id:'cidCluster1', label: 'Academic', borderWidth:3, shape:'circle'}
+    };
+}
 
 
 
