@@ -1,17 +1,18 @@
 /* custom template */
 html, body {
-   height: 100%;
-   font: 100% 'Ubuntu', sans-serif;
+    height: 100%;
+    font: 100% 'Ubuntu', sans-serif;
+    /*background: #fefefe;*/
 }
 
 a {
-  color:#222222;
+    color: #222222;
 }
 
 .wrapper, .row {
-   height: 100%;
-   margin-left:0;
-   margin-right:0;
+    height: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .wrapper:before, .wrapper:after,
@@ -28,15 +29,15 @@ a {
 .column {
     height: 100%;
     overflow: auto;
-    *zoom:1;
+    *zoom: 1;
 }
 
 .column .padding {
-    padding: 20px;
+    padding: 10px;
 }
 
 .box {
-  	bottom: 0; /* increase for footer use */
+    bottom: 0px; /* increase for footer use */
     left: 0;
     position: absolute;
     right: 0;
@@ -45,54 +46,40 @@ a {
 }
 
 .divider {
-	margin-top:32px;
+    margin-top: 32px;
 }
 
 #main {
-    background-color:#fefefe;
+    background-color: #fefefe;
 }
+
 #main .img-circle {
-  margin-top:18px;
-  height:70px;
-  width:70px;
+    margin-top: 18px;
+    height: 70px;
+    width: 70px;
 }
 
-#sidebar, #sidebar a {
-    color:#ffffff;
-    background-color:transparent;
-	text-shadow:1px 0 1px #888888;
+/*SIDEBAR CSS*/
+#sidebar {
+    color: #ffffff;
+    background-color: transparent;
+    text-shadow: 1px 0 1px #888888;
 }
-#sidebar a.logo {
-  display:block;
-  padding:3px;
-  background-color:#fff;
-  color:#777777;
-  height:40px;
-  width:40px;
-  margin:15px;
-  font-size:26px;
-  font-weight:700;
-  text-align:center;
-  text-decoration:none;
-  text-shadow:0 0 0;
-}
+
 #sidebar-footer {
-  position:absolute;bottom:5px;
-}
-#footer {
-  margin-bottom:20px;
+    position: absolute;
+    bottom: 5px;
 }
 
-/*MY SIDEBAR CODE*/
 .sidebar-top {
-    color: #000000;
+    color: #222222;
 }
 
 .sidebar-top h1, h2, h3, h4, h5, h6 {
     color: #FFFFFF;
 }
 
-.sidebar-top img{
+.sidebar-top img {
     width: 75%;
     padding: 1em;
     margin-left: auto;
@@ -103,12 +90,12 @@ a {
     padding: 0.5em;
 }
 
-.sidebar-top q{
+.sidebar-top q {
     line-height: 1.5em;
 }
 
 .sidebar-contact {
-    color: #000000;
+    color: #222222;
 }
 
 .sidebar-contact h1, h2, h3, h4, h5, h6 {
@@ -119,45 +106,96 @@ a {
     color: #893535;
 }
 
+.sidebar-nav {
+    margin: 5px 0 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.sidebar-nav li {
+    line-height: 40px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #FFECB3;
+    font-size: 1.25em;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: #C54C4C;
+    border-radius: 20px;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav-active {
+    text-decoration: none;
+    color: #fff;
+    background: #C54C4C;
+    border-radius: 20px;
+}
+
+/*SIDEBAR*/
+
+
+#footer {
+    margin-bottom: 20px;
+}
+
 /* center and adjust the sidebar contents on smaller devices */
 @media (max-width: 768px) {
-  #sidebar,#sidebar a.logo {
-    text-align:center;
-    margin:0 auto;
-    margin-top:30px;
-    font-size:26px;
-  }
-  #sidebar a.logo {
-    font-size:50px;
-    height:75px;
-    width:75px;
-    margin-bottom:30px;
-  }
+    #sidebar, #sidebar a.logo {
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 30px;
+        font-size: 26px;
+    }
+
+    #sidebar a.logo {
+        font-size: 50px;
+        height: 75px;
+        width: 75px;
+        margin-bottom: 30px;
+    }
 }
 
+/* Content CSS */
 
-
+.section-title-background {
+    background: #C54C4C;
+    color: #FFF;
+    padding: 5px 190px 5px 30px;
+    display: inline-block;
+    border-radius: 20px;
+}
 
 /* bootstrap overrides */
-
-h1,h2,h3 {
-   font-weight:800;
-   font-family:'Open Sans',arial,sans-serif;
-}
-
 .jumbotron {
-  background-color:transparent;
+    background-color: transparent;
 }
+
 .label-default {
-  background-color:#dddddd;
+    background-color: #dddddd;
 }
+
 .page-header {
-  margin-top: 55px;
-  padding-top: 9px;
-  border-top:1px solid #eeeeee;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:2px;
+    margin-top: 50px;
+    padding-top: 10px;
+    border-top: 1px dotted #E57373;
+    font-weight: 700;
+    font-size: 1.25em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .col-sm-9.full {
@@ -165,5 +203,5 @@ h1,h2,h3 {
 }
 
 small.text-muted {
-  font-family:courier,courier-new,monospace;
+    font-family: courier, courier-new, monospace;
 }
