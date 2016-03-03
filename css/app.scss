@@ -1,0 +1,41 @@
+/* Use http://www.sassmeister.com/ to convert from scss file */
+$color-primary: #E57373;
+$color-primary-dark: #C54C4C;
+$color-accent: #009688;
+$color-primary-text: #000000;
+$color-secondary-text: #FFECB3;
+
+$font-stack: Helvetica, sans-serif;
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: $color-primary-dark;
+  font: 100% $font-stack;
+  color: $color-secondary-text;
+}
+
+.master-body {
+  background: $color-accent;
+}
+
+.side-bar {
+  background: $color-primary;
+}
+
+.nav-bar {
+  background: $color-primary;
+}
+
+.master-content {
+  background: $color-secondary-text;
+  color: $color-primary-text;
+}
+
+.fill-height {
+  min-height: 100%;
+  height:auto !important; /* cross-browser */
+  height: 100%; /* cross-browser */
+}

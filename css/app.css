@@ -1,0 +1,33 @@
+/* Use http://www.sassmeister.com/ to convert from scss file */
+
+html, body {
+    background: #C54C4C;
+    font: 100% 'Ubuntu', sans-serif;
+    /*font: 100% 'Varela Round', sans-serif;*/
+    color: #FFFFFF;
+}
+
+.master-body {
+    background: #009688;
+}
+
+.side-bar {
+    background: #E57373;
+}
+
+.nav-bar {
+    background: #E57373;
+}
+
+.master-content {
+    background: #FFECB3;
+    color: #000000;
+}
+
+.fill-height {
+    min-height: 100%;
+    height: auto !important;
+    /* cross-browser */
+    height: 100%;
+    /* cross-browser */
+}
