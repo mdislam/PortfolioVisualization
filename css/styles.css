@@ -1,7 +1,7 @@
 /* custom template */
 html, body {
    height: 100%;
-   font-family:'Open Sans',arial,sans-serif;
+   font: 100% 'Ubuntu', sans-serif;
 }
 
 a {
@@ -41,9 +41,7 @@ a {
     position: absolute;
     right: 0;
     top: 0;
-    background-image:url('http://lorempixel.com/1024/760/nature/3/');
-    background-size:cover;
-    background-attachment:fixed;
+    background: #E57373;
 }
 
 .divider {
@@ -83,6 +81,42 @@ a {
 }
 #footer {
   margin-bottom:20px;
+}
+
+/*MY SIDEBAR CODE*/
+.sidebar-top {
+    color: #000000;
+}
+
+.sidebar-top h1, h2, h3, h4, h5, h6 {
+    color: #FFFFFF;
+}
+
+.sidebar-top img{
+    width: 75%;
+    padding: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sidebar-top p {
+    padding: 0.5em;
+}
+
+.sidebar-top q{
+    line-height: 1.5em;
+}
+
+.sidebar-contact {
+    color: #000000;
+}
+
+.sidebar-contact h1, h2, h3, h4, h5, h6 {
+    color: #FFFFFF;
+}
+
+.sidebar-contact i {
+    color: #893535;
 }
 
 /* center and adjust the sidebar contents on smaller devices */
